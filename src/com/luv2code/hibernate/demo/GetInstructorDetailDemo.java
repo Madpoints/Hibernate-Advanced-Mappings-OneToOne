@@ -40,11 +40,6 @@ public class GetInstructorDetailDemo {
 			System.out.println("Associated instructor: " + 
 								tempInstructorDetail.getInstructor());
 			
-			// delete instructor detail
-			System.out.println("Deleting instructor detail: " + 
-								tempInstructorDetail);
-			session.delete(tempInstructorDetail);
-			
 			// commit transaction
 			session.getTransaction().commit();
 			System.out.println("Done");
