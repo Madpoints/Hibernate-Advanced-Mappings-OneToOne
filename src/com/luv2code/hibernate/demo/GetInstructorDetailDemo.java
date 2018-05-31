@@ -27,22 +27,17 @@ public class GetInstructorDetailDemo {
 			// start a transaction
 			session.beginTransaction();
 			
-			// get instructor by primary key (id)
-			int id = 1;
+			// get instructor detail object
+			int theId = 2;
+			InstructorDetail tempInstructorDetail =
+					session.get(InstructorDetail.class, theId);
 			
-			Instructor tempInstructor =
-					session.get(Instructor.class, id);
+			// print instructor detail
+			System.out.println("Instructor detail: " + tempInstructorDetail);
 			
-			System.out.println("Found instructor: " + tempInstructor);
-			
-			// delete instructor
-			if (tempInstructor != null) { 
-				
-				System.out.println("Deleting instructor: " + tempInstructor);
-				
-				// will also delete associated details object from db
-				session.delete(tempInstructor);
-			}
+			// print associated instructor
+			System.out.println("Associated instructor: " + 
+								tempInstructorDetail.getInstructor());
 			
 			// commit transaction
 			session.getTransaction().commit();
